@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
@@ -10,13 +11,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // I want Systemos.out.println instead. Solve this.
+/*        Word[] words = new Word[]{
+                new Word("Bord"),
+                new Word("BordBord"),
+                new Word("Konglomerat"),
+                new Word("Skrivebord"),
+                new Word("SkrivebordBord")
+        };
+        Systemos.out.println(words);*/
 
+        ArrayList<Word> animals = new ArrayList<>(){{
+            add(new Word("Elefant"));
+            add(new Word("Giraf"));
+            add(new Word("Slange"));
+            add(new Word("Bille"));
+            add(new Word("Mus"));
+        }};
 
-        Systemos.out.println("Say hello");
-        Systemos.out.println(5);
-        Systemos.out.println(3.50);
-        // support all primitive data types you can think of
+        Systemos.out.println(animals);
+
 
     }
 
