@@ -29,6 +29,7 @@ public class Systemos {
 
         public static void println(List content) {
             content.forEach(object -> println(object));
+//            content.forEach(System.out::println);
         }
 
     }
