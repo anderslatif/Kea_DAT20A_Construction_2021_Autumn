@@ -1,15 +1,21 @@
 import java.util.Random;
 
 public class Octopus extends Animal {
+
     private static final Random random = new Random();
     private static final int min = 1;
     private static final int max = 10;
+
 
     public void makeDoActivity() {
         for (;;) {
             try {
                 String activity = selectActivity();
                 System.out.println(activity);
+                if (activity.equals("Mate")) {
+                    GameOfOctopus gameThread = new GameOfOctopus();
+                    gameThread.start();
+                }
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
