@@ -9,7 +9,6 @@ Streams are:
 
 Intermediate operations
     intermediate operations return the stream itself
-map, filter, sorted
 ---------------------------
 Examples:
 anyMatch()
