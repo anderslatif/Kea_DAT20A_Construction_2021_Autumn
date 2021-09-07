@@ -1,0 +1,7 @@
+// String literal
+"Hello World"
+
+// Function literal
+() -> System.out.println("Hello World")
+
+

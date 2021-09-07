@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functional Programming in Javascript</title>
+</head>
+<body>
+
+
+    <script>
+
+    // We have proven that functions are first-class citizens in Javascript
+
+    const greetings = function greetings() {
+        console.log("Hello World");
+    };
+
+    const greetingsAnonymousFunction = function () {
+        console.log("Hello World");
+    };
+
+    function returnMeAFunction() {
+        // returns a function reference
+        // (which means that it doesn't call it just passes the function variable)
+        return greetingsAnonymousFunction;
+    }
+
+
+    const greetings2 = function () {
+        console.log("Hello");
+    }
+
+    function whoToGreet() {
+        greetings2();
+        console.log("World");
+    }
+
+    whoToGreet();
+
+
+
+    </script>
+</body>
+</html>

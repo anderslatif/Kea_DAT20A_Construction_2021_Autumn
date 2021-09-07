@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functions 2</title>
+</head>
+<body>
+    <script>
+        const myFavoriteThings = ["Java", "🍆", false];
+
+        function printer(something) {
+            console.log(something);
+        }
+
+        // HoF - Higher order Function = A function that takes a function as an argument
+        // forEach is a function and it takes printer as an argument (printer is also a function)
+        // myFavoriteThings.forEach(printer);
+
+        // lambda
+        // myFavoriteThings.forEach(element => printer(element));
+
+        // one-liner
+        // myFavoriteThings.forEach(element => printer(element));
+        // with a body (allows multiple statements)
+        // (remember the return value if the two need to be identical)
+/*        myFavoriteThings.forEach(element => {
+            return printer(element);
+        });*/
+
+
+
+        // myFavoriteThings.forEach((element, index, list) => printer(element, index));
+
+        // myFavoriteThings.forEach(console.log);
+        // is the same as below (the arguments are automatically populated into console.log above)
+        // myFavoriteThings.forEach((element, index, list) => console.log(element, index, list));
+
+        // I can name my arguments anything I want
+        // myFavoriteThings.forEach((bla, blop, bleep) => console.log(bleep, blop, bla));
+
+        // anatomy of a lambda
+        /*
+        *  (someArgument)  [I name them]
+        *   =>             [denotes lambda syntax]
+        *  [...]           [Function/Lambda body]
+        * */
+
+        // myFavoriteThings.forEach(element => {});
+
+    </script>
+</body>
+</html>
