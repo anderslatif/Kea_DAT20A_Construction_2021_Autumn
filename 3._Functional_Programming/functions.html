@@ -26,16 +26,16 @@
     }
 
 
-    const greetings2 = function () {
+    const greetingFunctionToBePassed = function () {
         console.log("Hello");
     }
 
-    function whoToGreet() {
-        greetings2();
+    function whoToGreet(anyFunctionAsAParameter) {
+        anyFunctionAsAParameter();
         console.log("World");
     }
 
-    whoToGreet();
+    whoToGreet(greetingFunctionToBePassed);
 
 
 

@@ -3,5 +3,10 @@
 
 // Function literal
 () -> System.out.println("Hello World")
+Also cherished by the names of: Lambda, Anonymous function
 
+// Method
+public void greetings() {
+    System.out.println("Hello World");
+}
 
