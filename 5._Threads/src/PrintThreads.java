@@ -1,3 +1,5 @@
+package src;
+
 public class PrintThreads extends Thread {
     private static Object lock = new Object();
     String message;

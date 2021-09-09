@@ -1,4 +1,4 @@
-package Synchronization;
+package src.Synchronization;
 
 public class ClassicCounter extends Thread {
     private int counter = 0;

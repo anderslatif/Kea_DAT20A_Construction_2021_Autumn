@@ -1,6 +1,8 @@
+package src;
+
 public class ThreadExtendsThread extends Thread {
     public void run() {
-        for (;;) {
+       while (true) {
             // print the time
             System.out.println("------------------");
             System.out.println("| " + java.time.LocalTime.now() + " |");

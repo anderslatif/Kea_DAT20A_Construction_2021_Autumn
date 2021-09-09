@@ -1,4 +1,4 @@
-package Concurrency;
+package src.Concurrency;
 
 public class CountingThread extends Thread {
     @Override

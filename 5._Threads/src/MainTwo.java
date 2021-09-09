@@ -1,5 +1,7 @@
-import Concurrency.CountingThread;
-import Semaphore.SemaphoreExample;
+package src;
+
+import src.Concurrency.CountingThread;
+import src.Semaphore.SemaphoreExample;
 
 import java.util.concurrent.Semaphore;
 

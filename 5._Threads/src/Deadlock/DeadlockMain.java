@@ -1,4 +1,4 @@
-package Deadlock;
+package src.Deadlock;
 
 import java.util.ArrayList;
 
