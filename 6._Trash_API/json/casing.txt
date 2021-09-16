@@ -1,0 +1,6 @@
+camelCase
+wEiRdOcAsE
+ALLCAPS // useful for constants
+lowercase
+PascalCase
+snake_case

@@ -1,14 +1,11 @@
 package edu.kea.trash_api.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@RequestMapping("/root")
+//@RequestMapping("/root")
 @RestController
 public class TrashController {
 
@@ -30,13 +27,21 @@ public class TrashController {
         return "Endpoint with Request mapping annotation";
     }
 
-    // todo create a route that gives one of the seven deadly sins based on a number
-    // todo you are allowed to hardcode the number inside the route for now
-    @GetMapping("/sevendeadlysins")
-    public String getADeadlySin() {
-        // todo implement this
-        return null;
+
+    @GetMapping("/sevendeadlysins/{sinNumber}")
+    public String getADeadlySin(@PathVariable int sinNumber) {
+        try {
+            return deadlySins[sinNumber];
+        } catch (Exception error) {
+            return "You have not sinned";
+        }
     }
 
+    // todo http://localhost:8080/trash?trash=socks%20tissue&otherTrash=celebrities
+
+    @GetMapping("/trash")
+    public String throwTrashBackAtClient(@RequestParam String trash, @RequestParam(required = false) String otherTrash) {
+        return trash + ", " + otherTrash;
+    }
 
 }

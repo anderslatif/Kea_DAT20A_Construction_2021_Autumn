@@ -1,0 +1,27 @@
+{
+  "pizza": "Pepperoni",
+  "burger": "Foot Lettuce",
+  "owner": "Adam Hansen",
+  "menu": [
+    {
+      "pizza": "Pepperoni"
+    },
+    {
+      "burger": "Foot Lettuce"
+    },
+    {
+      "fries": "Jizz"
+    }
+  ],
+  "employees": [
+    {
+      "employee": "Johnny"
+    },
+    {
+      "employee": "John"
+    },
+    {
+      "employee": "Mohmamed"
+    }
+  ]
+}
