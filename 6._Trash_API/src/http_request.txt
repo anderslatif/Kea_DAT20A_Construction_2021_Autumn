@@ -1,0 +1,11 @@
+GET /pokemon/1 HTTP/1.0
+[headers]
+
+[body]
+
+------------------------
+
+POST /pokemon HTTP/1.0
+[headers]
+
+[body]

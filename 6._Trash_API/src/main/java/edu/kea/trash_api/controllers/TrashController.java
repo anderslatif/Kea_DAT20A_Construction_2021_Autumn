@@ -27,7 +27,6 @@ public class TrashController {
         return "Endpoint with Request mapping annotation";
     }
 
-
     @GetMapping("/sevendeadlysins/{sinNumber}")
     public String getADeadlySin(@PathVariable int sinNumber) {
         try {
@@ -42,6 +41,12 @@ public class TrashController {
     @GetMapping("/trash")
     public String throwTrashBackAtClient(@RequestParam String trash, @RequestParam(required = false) String otherTrash) {
         return trash + ", " + otherTrash;
+    }
+
+    @PostMapping("/rubbishbin")
+    public String throwOutRubbish(@RequestBody String rubbish) {
+        System.out.println(rubbish);
+        return "Threw it out for you.";
     }
 
 }
