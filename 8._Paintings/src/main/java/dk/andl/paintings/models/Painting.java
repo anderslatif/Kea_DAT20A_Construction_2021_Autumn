@@ -1,5 +1,6 @@
 package dk.andl.paintings.models;
 
+
 public class Painting {
 
     private String artist;
@@ -7,6 +8,10 @@ public class Painting {
     private String title;
     private String genre;
     private int year;
+
+    public Painting(String artist) {
+        this.artist = artist;
+    }
 
     public Painting(String artist, double price, String title, String genre, int year) {
         this.artist = artist;
