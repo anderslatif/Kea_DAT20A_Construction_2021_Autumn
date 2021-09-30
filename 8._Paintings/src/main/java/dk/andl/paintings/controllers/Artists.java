@@ -31,9 +31,21 @@ public class Artists {
     }
 
     @PutMapping("/artists/{id}")
-    public Artists updateArtistById(@PathVariable Long id, @RequestBody Artist artist) {
-        artist.setName("test");
-        return null;
+    public String updateArtistById(@PathVariable Long id, @RequestBody Artist artistToUpdateWith) {
+        // blindly trusts the client to provide a proper id
+//        artistToUpdateWith.setId(id);
+//        artists.save(artistToUpdateWith);
+        return artists.findById(id).map(foundArtist -> {
+            foundArtist.setName(artistToUpdateWith.getName());
+            foundArtist.setAge(artistToUpdateWith.getAge());
+            foundArtist.setNationality(artistToUpdateWith.getNationality());
+            foundArtist.setPrimaryStyle(artistToUpdateWith.getPrimaryStyle());
+            foundArtist.setBirthDate(artistToUpdateWith.getBirthDate());
+            foundArtist.setGender(artistToUpdateWith.getGender());
+
+            artists.save(foundArtist);
+            return "Artist updated";
+        }).orElse("Artist not found");
     }
 
     @DeleteMapping("/artists/{id}")
