@@ -19,22 +19,25 @@ public class Artists {
     }
 
     @GetMapping("/artists/{id}")
-    public Artist getArtists(@PathVariable int id) {
-        return null;
+    public Artist getArtists(@PathVariable Long id) {
+        return artists.findById(id).get();
     }
 
     @PostMapping("/artists")
-    public Artists addArtist(@RequestBody Artists artists) {
-        return null;
+    public Artist addArtist(@RequestBody Artist newArtist) {
+        // don't allow the client to overwrite the id
+        newArtist.setId(null);
+        return artists.save(newArtist);
     }
 
     @PutMapping("/artists/{id}")
-    public Artists updateArtistById(@PathVariable int id, @RequestBody Artists artists){
+    public Artists updateArtistById(@PathVariable Long id, @RequestBody Artist artist) {
+        artist.setName("test");
         return null;
     }
 
     @DeleteMapping("/artists/{id}")
-    public Artists deleteArtistById(@PathVariable int id){
-        return null;
+    public void deleteArtistById(@PathVariable Long id) {
+        artists.deleteById(id);
     }
 }
