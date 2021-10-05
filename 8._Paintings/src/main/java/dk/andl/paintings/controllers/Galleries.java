@@ -33,12 +33,11 @@ public class Galleries {
         if (galleries.existsById(id)) {
             galleryToUpdateWith.setId(id);
             galleries.save(galleryToUpdateWith);
-            return "Artist was created";
+            return "Gallery was created";
         } else {
-            return "Artist not found";
+            return "Gallery not found";
         }
     }
-
 
     @PatchMapping("/galleries/{id}")
     public String patchGalleryById(@PathVariable Long id, @RequestBody Gallery galleryToUpdateWith) {
@@ -49,8 +48,8 @@ public class Galleries {
             if (galleryToUpdateWith.getSquareFeet() != 0) foundArtist.setSquareFeet(galleryToUpdateWith.getSquareFeet());
 
             galleries.save(foundArtist);
-            return "Artist updated";
-        }).orElse("Artist not found");
+            return "Gallery updated";
+        }).orElse("Gallery not found");
     }
 
     @DeleteMapping("/galleries/{id}")

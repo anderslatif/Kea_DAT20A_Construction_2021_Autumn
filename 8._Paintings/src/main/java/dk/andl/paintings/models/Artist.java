@@ -34,4 +34,8 @@ public class Artist {
     @Column
     private Gender gender;
 
+    @ManyToOne
+    @JoinColumn(name = "gallery_id")
+    private Gallery gallery;
+
 }

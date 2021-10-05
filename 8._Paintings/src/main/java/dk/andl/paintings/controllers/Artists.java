@@ -41,7 +41,6 @@ public class Artists {
         }
     }
 
-
     @PatchMapping("/artists/{id}")
     public String patchArtistById(@PathVariable Long id, @RequestBody Artist artistToUpdateWith) {
         return artists.findById(id).map(foundArtist -> {
