@@ -19,7 +19,7 @@ public class Artists {
     }
 
     @GetMapping("/artists/{id}")
-    public Artist getArtists(@PathVariable Long id) {
+    public Artist getArtist(@PathVariable Long id) {
         return artists.findById(id).get();
     }
 
@@ -32,16 +32,25 @@ public class Artists {
 
     @PutMapping("/artists/{id}")
     public String updateArtistById(@PathVariable Long id, @RequestBody Artist artistToUpdateWith) {
-        // blindly trusts the client to provide a proper id
-//        artistToUpdateWith.setId(id);
-//        artists.save(artistToUpdateWith);
+        if (artists.existsById(id)) {
+            artistToUpdateWith.setId(id);
+            artists.save(artistToUpdateWith);
+            return "Artist was created";
+        } else {
+            return "Artist not found";
+        }
+    }
+
+
+    @PatchMapping("/artists/{id}")
+    public String patchArtistById(@PathVariable Long id, @RequestBody Artist artistToUpdateWith) {
         return artists.findById(id).map(foundArtist -> {
-            foundArtist.setName(artistToUpdateWith.getName());
-            foundArtist.setAge(artistToUpdateWith.getAge());
-            foundArtist.setNationality(artistToUpdateWith.getNationality());
-            foundArtist.setPrimaryStyle(artistToUpdateWith.getPrimaryStyle());
-            foundArtist.setBirthDate(artistToUpdateWith.getBirthDate());
-            foundArtist.setGender(artistToUpdateWith.getGender());
+            if (artistToUpdateWith.getName() != null) foundArtist.setName(artistToUpdateWith.getName());
+            if (artistToUpdateWith.getAge() != 0) foundArtist.setAge(artistToUpdateWith.getAge());
+            if (artistToUpdateWith.getNationality() != null) foundArtist.setNationality(artistToUpdateWith.getNationality());
+            if (artistToUpdateWith.getPrimaryStyle() != null) foundArtist.setPrimaryStyle(artistToUpdateWith.getPrimaryStyle());
+            if (artistToUpdateWith.getBirthDate() != null) foundArtist.setBirthDate(artistToUpdateWith.getBirthDate());
+            if (artistToUpdateWith.getGender() != null) foundArtist.setGender(artistToUpdateWith.getGender());
 
             artists.save(foundArtist);
             return "Artist updated";
