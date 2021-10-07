@@ -5,6 +5,8 @@ import dk.andl.paintings.repositories.PaintingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class Paintings {
 
@@ -19,6 +21,16 @@ public class Paintings {
     @GetMapping("/paintings/{id}")
     public Painting getPainting(@PathVariable Long id) {
         return paintings.findById(id).get();
+    }
+
+    @GetMapping("/paintings/timeline")
+    public List<Painting> getPaintingByArtistAndYear(@RequestParam String artist, @RequestParam int year) {
+        return paintings.findPaintingsByArtistAndYear(artist, year);
+    }
+
+    @GetMapping("/paintings/priceabove/{price}")
+    public List<Painting> getPaintingsAboveACertainPrice(@PathVariable double price) {
+        return paintings.findPaintingsAboveACertainPrice(price);
     }
 
     @PostMapping("/paintings")

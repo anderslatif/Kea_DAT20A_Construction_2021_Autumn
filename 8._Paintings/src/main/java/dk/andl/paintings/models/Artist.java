@@ -1,6 +1,7 @@
 package dk.andl.paintings.models;
 
 import lombok.Data;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -36,6 +37,7 @@ public class Artist {
 
     @ManyToOne
     @JoinColumn(name = "gallery_id")
+    @Nullable
     private Gallery gallery;
 
 }

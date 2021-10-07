@@ -1,5 +1,6 @@
 package dk.andl.paintings.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class Gallery {
     @Column
     private int squareFeet;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "gallery", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Artist> artists;
 
