@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie Clicker</title>
+</head>
+<body>
+    <h1>Click the cookie</h1>
+    <button id="click-btn">Click</button>
+
+    <div id="click-counters"></div>
+
+    <script>
+        let counter = 0;
+        const clickButton = document.getElementById("click-btn");
+        clickButton.addEventListener("mouseenter", () => {
+            // console.log("oooh, somebody is about to click.. the suspense is killing me");
+        });
+        clickButton.addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            counter++;
+            // console.log("The button was clicked", counter, "times");
+
+            const paragraph = document.createElement("p");
+            paragraph.innerText = "You've clicked the button " + counter + " times.";
+            paragraph.style.color = "blue";
+
+            const counterWrapper = document.getElementById("click-counters");
+
+            counterWrapper.prepend(paragraph);
+        }
+    </script>
+</body>
+</html>
