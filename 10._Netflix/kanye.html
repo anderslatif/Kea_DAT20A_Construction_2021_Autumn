@@ -5,12 +5,55 @@
         .website-header {
             text-align: center;
         }
+
+        .reaction-btn {
+            font-size: 4em;
+        }
+
+        .list-wrapper {
+            display: flex;
+        }
+
+        .list {
+            flex-grow: 1;
+            min-height: 50vh;
+        }
+
+        #list-laugh {
+            background-color: yellow;
+        }
+
+        #list-wtf {
+            background-color: red;
+        }
+
+        #list-horny {
+            background-color: purple;
+        }
+
     </style>
     <meta charset="UTF-8">
     <title>Kanye</title>
 </head>
 <body>
     <h1 class="website-header">Great quotes by the man</h1>
+
+    <div class="btn-wrapper">
+        <button id="btn-laugh" class="reaction-btn">🤣</button>
+        <button id="btn-wtf" class="reaction-btn">🥴</button>
+        <button id="btn-horny" class="reaction-btn">🍆</button>
+    </div>
+
+    <h2 id="kanye-quote"></h2>
+
+    <!--todo Add colors to each list -->
+    <!--todo Bonus: style the lists so that they are adjacent -->
+
+    <div class="list-wrapper">
+        <div id="list-laugh" class="list"></div>
+        <div id="list-wtf" class="list"></div>
+        <div id="list-horny" class="list"></div>
+    </div>
 
     <script src="./kanye.js"></script>
 </body>
