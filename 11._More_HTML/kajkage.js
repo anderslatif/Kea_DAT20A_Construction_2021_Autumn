@@ -12,6 +12,11 @@ const kajkager = [{
     type: "Andrea",
     color: "blue",
     deliciousness: 8
+},
+{
+    type: "Kaj",
+    color: "brown",
+    deliciousness: 1
 }];
 
 kajkager.push({
@@ -22,9 +27,16 @@ kajkager.push({
 
 const tbodyElement = document.getElementById("cake-tbody");
 
-/* what is??? XSS === cross side scripting */
+/* what is??? XSS === cross site scripting */
 
-tbodyElement.innerHTML = escapeHTML("<script>test string</script>");
+kajkager.map(cake => {
+    const tableRowElement = document.createElement("tr");
 
+    tableRowElement.innerHTML = `
+        <td>${escapeHTML(cake.type)}</td>
+        <td>${escapeHTML(cake.color)}</td>
+        <td>${escapeHTML(cake.deliciousness.toString())}/10</td>
+`;
 
-console.log(escapeHTML("<script>test string</script>"));
+    tbodyElement.appendChild(tableRowElement);
+});
