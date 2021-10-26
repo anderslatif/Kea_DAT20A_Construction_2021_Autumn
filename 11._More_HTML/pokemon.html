@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+</head>
+<body>
+<!-- todo https://pokeapi.co/  -->
+<!-- todo: Get the first 20 pokemon characters and display their names on the page -->
+
+    <div id="character-names-wrapper"></div>
+
+    <script>
+        fetch("https://pokeapi.co/api/v2/pokemon")
+        .then(response => response.json())
+        .then(result => {
+            result.results.map((character) => {
+                const characterDivElement = document.getElementById("character-names-wrapper");
+                const nameParagraphElement = document.createElement("p");
+                nameParagraphElement.innerText = character.name;
+
+                characterDivElement.appendChild(nameParagraphElement);
+            });
+        });
+    </script>
+</body>
+</html>
