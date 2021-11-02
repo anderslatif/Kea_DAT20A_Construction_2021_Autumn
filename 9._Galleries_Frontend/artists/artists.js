@@ -37,10 +37,14 @@ function createNewArtist() {
         },
         body: JSON.stringify(newArtist)
     })
-    .then(response => response.json())
-    .then(result => {
-        console.log(result);
-    });
+    .then(response => {
+        if (response.status === 200) {
+            createArtistCard(newArtist);
+        } else {
+            console.log("Artist not created.", response.status);
+        }
+    })
+    .catch(error => console.log("Network related error", error));
 
 }
 
