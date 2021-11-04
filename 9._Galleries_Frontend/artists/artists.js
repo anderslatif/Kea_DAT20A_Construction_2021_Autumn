@@ -1,4 +1,4 @@
-fetch("http://localhost:8080/artists")
+fetch(baseURL + "/artists")
 .then(response => response.json())
 .then(result => {
     result.map(createArtistCard);
@@ -28,9 +28,7 @@ function createNewArtist() {
     };
 
 
-    // todo show the newly created artist on the page
-    // todo think veeeeerry carefully WHERE you would like to do this
-    fetch("http://localhost:8080/artists", {
+    fetch(baseURL + "/artists", {
         method: "POST",
         headers: {
             "Content-type": "application/json; charset=UTF-8"
