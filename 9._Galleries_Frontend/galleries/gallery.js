@@ -1,6 +1,8 @@
-// todo here get the id from the url and make it show the correct gallery on the page
+const queryString = window.location.search;
+const URLParams = new URLSearchParams(queryString);
+const galleryId = URLParams.get("galleryId");
 
-fetch(baseURL + "/galleries/1")
+fetch(baseURL + "/galleries/" + galleryId)
 .then(response => response.json())
 .then(gallery => {
     document.getElementById("gallery-name").innerText = gallery.name;
