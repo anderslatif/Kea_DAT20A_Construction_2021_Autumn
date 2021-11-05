@@ -6,7 +6,6 @@ fetch(baseURL + "/artists")
 
 const artistsGalleryWrapper = document.getElementById("artists-gallery");
 
-// todo this is not the full solution... show more artist info with images
 function createArtistCard(artist) {
     const artistElement = document.createElement("div");
     artistElement.innerText = artist.name;
