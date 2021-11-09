@@ -8,6 +8,7 @@ fetch(baseURL + "/galleries")
 
 function createGalleryTableRow(gallery) {
     const galleryTableRow = document.createElement("tr");
+    galleryTableRow.id = gallery.id;
 
     galleryTableRow.innerHTML = `
             <td>
@@ -49,9 +50,16 @@ function createGallery() {
     });
 }
 
-// todo actually delete a gallery
 function deleteGallery(galleryId) {
-    console.log(galleryId);
+    fetch(baseURL + "/galleries/" + galleryId, {
+        method: "DELETE"
+    }).then(response => {
+        if (response.status === 200) {
+            document.getElementById(galleryId).remove();
+        } else {
+            console.log(response.status);
+        }
+    });
 }
 
 document.getElementById("create-gallery").addEventListener("click", createGallery);
