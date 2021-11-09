@@ -33,23 +33,6 @@ function createGalleryTableRow(gallery) {
     galleriesTableBody.appendChild(galleryTableRow);
 }
 
-
-function createGallery() {
-
-    fetch(baseURL + "/galleries", {
-        method: "POST",
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-        body: JSON.stringify({
-            name: "New hardcoded gallery",
-            location: "Atlantis",
-            owner: "Apollo"
-        })
-    }).then(response => response.json())
-    .then(gallery => {
-        createGalleryTableRow(gallery);
-    });
-}
-
 function deleteGallery(galleryId) {
     fetch(baseURL + "/galleries/" + galleryId, {
         method: "DELETE"
@@ -61,5 +44,3 @@ function deleteGallery(galleryId) {
         }
     });
 }
-
-document.getElementById("create-gallery").addEventListener("click", createGallery);
