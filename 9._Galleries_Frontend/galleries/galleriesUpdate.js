@@ -1,35 +1,31 @@
-function updateGallery(galleryId) {
-    const tableRowToUpdate = document.getElementById(galleryId);
+function updateGallery(gallery) {
+    const tableRowToUpdate = document.getElementById(gallery.id);
 
-    const galleryToUpdate = {
-        id: galleryId,
-        name: tableRowToUpdate.getElementsByClassName("row-gallery-name")[0].innerText,
-        location: tableRowToUpdate.getElementsByClassName("row-gallery-location")[0].innerText,
-        owner: tableRowToUpdate.getElementsByClassName("row-gallery-owner")[0].innerText,
-        squareFeet: tableRowToUpdate.getElementsByClassName("row-gallery-square-feet")[0].innerText
-    };
 
     tableRowToUpdate.innerHTML = `
         <td>
-            <input value="${escapeHTML(galleryToUpdate.name)}">
+            <input value="${escapeHTML(gallery.name)}">
         </td>
         <td>
-            <input value="${escapeHTML(galleryToUpdate.location)}">
+            <input value="${escapeHTML(gallery.location)}">
         </td>
        <td>
-            <input value="${escapeHTML(galleryToUpdate.owner)}">
+            <input value="${escapeHTML(gallery.owner)}">
         </td>
        <td>
-            <input value="${escapeHTML(galleryToUpdate.squareFeet)}">
+            <input value="${escapeHTML(gallery.squareFeet.toString())}">
         </td>
         <td>
-            <button id="cancel-update-${galleryId}">✖️</button>
+            <button id="cancel-update-${gallery.id}">✖️</button>
             <button onclick="">✅</button>
         </td>
         <td>
-            <button onclick="deleteGallery(${galleryId})">❌</button>
+            <button onclick="deleteGallery(${gallery.id})">❌</button>
         </td>
     `;
+
+    document.getElementById(`cancel-update-${gallery.id}`)
+        .addEventListener("click", () => undoUpdateTableRow(gallery))
 }
 
 function undoUpdateTableRow(gallery) {

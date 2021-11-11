@@ -28,7 +28,7 @@ function createGalleryTableRow(gallery) {
                 <p class="row-gallery-square-feet">${escapeHTML(gallery.squareFeet.toString())}</p>
             </td>
             <td>
-                <button onclick="updateGallery(${gallery.id})">🥯</button>            
+                <button id="update-button-${gallery.id}">🥯</button>            
             </td>           
             <td>
                 <button onclick="deleteGallery(${gallery.id})">❌</button>            
@@ -36,6 +36,9 @@ function createGalleryTableRow(gallery) {
         `;
 
     galleriesTableBody.appendChild(galleryTableRow);
+
+    document.getElementById(`update-button-${gallery.id}`)
+        .addEventListener("click", () => updateGallery(gallery));
 }
 
 function deleteGallery(galleryId) {
