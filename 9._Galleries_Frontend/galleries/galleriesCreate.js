@@ -41,7 +41,7 @@ function createGallery() {
     .then(gallery => {
         removeGalleryForm();
         createGalleryTableRow(gallery);
-    });
+    }).catch(error => console.log(error));
 }
 
 

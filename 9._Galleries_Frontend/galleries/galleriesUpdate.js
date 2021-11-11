@@ -37,14 +37,26 @@ function undoUpdateTableRow(gallery) {
 }
 
 function updateGalleryInBackend(galleryId) {
-    // todo steps
-    // 1. get values from the input fields
-    // 2. fetch with PATCH
 
     const tableRowToUpdate = document.getElementById(galleryId);
 
-    console.log(tableRowToUpdate);
+    const galleryToUpdate = {
+        id: galleryId,
+        name: document.getElementById(`update-gallery-name-${galleryId}`).value,
+        location: document.getElementById(`update-gallery-location-${galleryId}`).value,
+        owner: document.getElementById(`update-gallery-owner-${galleryId}`).value,
+        squareFeet: document.getElementById(`update-gallery-square-feet-${galleryId}`).value
+    };
 
+    fetch(baseURL + "/galleries/" + galleryId, {
+        method: "PATCH",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify(galleryToUpdate)
+    }).then(response => {
+        if (response.status === 200) {
+            constructGalleryTableRow(tableRowToUpdate, galleryToUpdate);
+        }
+    });
 
 }
 
