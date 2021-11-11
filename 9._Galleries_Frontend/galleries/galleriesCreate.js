@@ -11,7 +11,7 @@ const createGalleryForm = `<div>
     <label>Square Feet</label>
     <input id="create-gallery-square-feet" placeholder="square feet">
     <button onclick="removeGalleryForm()">Cancel</button>
-    <button onclick="console.log('about to create a new gallery')">Create A New Gallery</button>
+    <button onclick="createGallery()">Create A New Gallery</button>
 </div>`;
 
 
@@ -26,17 +26,20 @@ function removeGalleryForm() {
 }
 
 function createGallery() {
+    const galleryToCreate = {
+        name: document.getElementById("create-gallery-name").value,
+        location: document.getElementById("create-gallery-location").value,
+        owner: document.getElementById("create-gallery-owner").value,
+        squareFeet: document.getElementById("create-gallery-square-feet").value
+    };
 
     fetch(baseURL + "/galleries", {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" },
-        body: JSON.stringify({
-            name: "New hardcoded gallery",
-            location: "Atlantis",
-            owner: "Apollo"
-        })
+        body: JSON.stringify(galleryToCreate)
     }).then(response => response.json())
     .then(gallery => {
+        removeGalleryForm();
         createGalleryTableRow(gallery);
     });
 }

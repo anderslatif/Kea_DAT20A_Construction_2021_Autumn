@@ -10,20 +10,25 @@ function createGalleryTableRow(gallery) {
     const galleryTableRow = document.createElement("tr");
     galleryTableRow.id = gallery.id;
 
+
+
     galleryTableRow.innerHTML = `
             <td>
                 <a href="./gallery.html?galleryId=${gallery.id}">
-                    <p>${escapeHTML(gallery.name)}</p>
+                    <p class="row-gallery-name">${escapeHTML(gallery.name)}</p>
                 </a>
             </td>
             <td>
-                <p>${escapeHTML(gallery.location)}</p>
+                <p class="row-gallery-location">${escapeHTML(gallery.location)}</p>
             </td>
             <td>
-                <p>${escapeHTML(gallery.owner)}</p>
+                <p class="row-gallery-owner">${escapeHTML(gallery.owner)}</p>
             </td>
             <td>
-                <p>${escapeHTML(gallery.squareFeet.toString())}</p>
+                <p class="row-gallery-square-feet">${escapeHTML(gallery.squareFeet.toString())}</p>
+            </td>
+            <td>
+                <button onclick="updateGallery(${gallery.id})">🥯</button>            
             </td>           
             <td>
                 <button onclick="deleteGallery(${gallery.id})">❌</button>            
