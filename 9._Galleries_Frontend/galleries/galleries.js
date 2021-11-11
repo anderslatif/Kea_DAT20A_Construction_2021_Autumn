@@ -10,12 +10,9 @@ function createGalleryTableRow(gallery) {
     const galleryTableRow = document.createElement("tr");
     galleryTableRow.id = gallery.id;
 
-    constructGalleryTableRow(galleryTableRow, gallery);
-
     galleriesTableBody.appendChild(galleryTableRow);
 
-    document.getElementById(`update-button-${gallery.id}`)
-        .addEventListener("click", () => updateGallery(gallery));
+    constructGalleryTableRow(galleryTableRow, gallery);
 }
 
 function constructGalleryTableRow(galleryTableRow, gallery) {
@@ -41,6 +38,9 @@ function constructGalleryTableRow(galleryTableRow, gallery) {
                 <button onclick="deleteGallery(${gallery.id})">❌</button>            
             </td>
         `;
+
+    document.getElementById(`update-button-${gallery.id}`)
+        .addEventListener("click", () => updateGallery(gallery));
 }
 
 function deleteGallery(galleryId) {

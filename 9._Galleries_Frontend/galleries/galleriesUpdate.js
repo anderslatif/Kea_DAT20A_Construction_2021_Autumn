@@ -31,9 +31,6 @@ function undoUpdateTableRow(gallery) {
     const galleryTableRow = document.getElementById(gallery.id);
 
     constructGalleryTableRow(galleryTableRow, gallery);
-
-    document.getElementById(`update-button-${gallery.id}`)
-        .addEventListener("click", () => updateGallery(gallery));
 }
 
 function updateGalleryInBackend(galleryId) {
