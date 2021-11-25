@@ -4,6 +4,7 @@ import com.example.prices_stores.models.Store;
 import com.example.prices_stores.repositories.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,6 +20,10 @@ public class StoresController {
         return stores.findAll();
     }
 
-    // todo create a controller method that gets a store by id
+    @GetMapping("/stores/{storeId}")
+    public Store getStore(@PathVariable Long storeId) {
+        return stores.findById(storeId).get();
+    }
+
 
 }
