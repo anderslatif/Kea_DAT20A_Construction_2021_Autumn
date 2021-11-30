@@ -1,9 +1,9 @@
 function escapeHTML(string) {
     if (!string) return "";
 
-    return string.replace(`&`, "&amp;")
-            .replace(`>`, "&gt;")
-            .replace(`<`, "&lt;")
-            .replace(`"`, "&quot;")
-            .replace(`/`, "&#039;");
+    return string.replaceAll(`&`, "&amp;")
+            .replaceAll(`>`, "&gt;")
+            .replaceAll(`<`, "&lt;")
+            .replaceAll(`"`, "&quot;")
+            .replaceAll(`/`, "&#039;");
 }
