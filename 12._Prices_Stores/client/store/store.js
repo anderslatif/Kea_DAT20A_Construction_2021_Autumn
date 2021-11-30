@@ -14,6 +14,7 @@ prices.map(displayPrice)
 function displayPrice(price) {
     const priceTagParagraph = document.createElement("p");
 
+    priceTagParagraph.id = price.id;
     priceTagParagraph.innerText = price.price;
     priceTagParagraph.style.position = "absolute";
     priceTagParagraph.style.fontSize = price.size;
@@ -47,4 +48,12 @@ function getRandomColor() {
     return '#' + hexNumber.slice(0, 6);
 }
 
-document.addEventListener("click", createPrice)
+document.addEventListener("click", (event) => {
+    if (Number(event.target.id) && (event.ctrlKey || event.metaKey)) {
+        event.target.remove();
+        // todo delete in the backend
+    } else {
+        createPrice();
+    }
+});
+
