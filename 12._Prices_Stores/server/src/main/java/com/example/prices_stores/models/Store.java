@@ -1,6 +1,8 @@
 package com.example.prices_stores.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -29,6 +31,7 @@ public class Store {
     @Enumerated(value = EnumType.STRING)
     private CountryOfOrigin madeIn;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "store", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Price> prices;
 

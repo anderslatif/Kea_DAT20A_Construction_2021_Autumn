@@ -1,6 +1,8 @@
 package com.example.prices_stores.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,7 +28,7 @@ public class Price {
     @Column
     private String color;
 
-    @JsonIgnore
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="store_id")
     private Store store;
